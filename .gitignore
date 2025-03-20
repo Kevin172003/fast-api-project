@@ -1,0 +1,6 @@
+__MACOSX
+__pycache__
+.venv
+todosapp.db
+.pytest_cache
+__init__.py

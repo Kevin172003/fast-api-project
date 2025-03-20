@@ -1,0 +1,46 @@
+{% include 'base.html' %}
+{% block content %}
+    <form>
+        <div class="registerForm">
+            <div class="header">
+                Register
+            </div>
+            <div class="form-group col-md-6">
+            <label>Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+            </div>
+            <div class="form-group col-md-6">
+            <label>Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+            </div>
+            <div class="form-group col-md-6">
+            <label>Firstname</label>
+            <input type="text" class="form-control" id="firstname" placeholder="Enter firstname" required>
+            </div>
+            <div class="form-group col-md-6">
+            <label>Lastname</label>
+            <input type="text" class="form-control" id="lastname" placeholder="Enter lastname" required>
+            </div>
+            <div class="form-group col-md-6">
+            <label>Role</label>
+            <input type="text" class="form-control" id="role" placeholder="Enter role" required>
+            </div>
+            <div class="form-group col-md-6">
+            <label>Phone number</label>
+            <input type="text" class="form-control" id="phonenumber" placeholder="Enter phone number" required>
+            </div>
+            <div class="form-group col-md-6">
+            <label>Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password" autocomplete="new-password" required>
+            </div>
+            <div class="form-group col-md-6">
+            <label>Verify Password</label>
+            <input type="password" class="form-control" id="password2" placeholder="Password" autocomplete="new-password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="card-footer text-muted">
+            <a href="/auth/login-page">Already have an account?</a>
+        </div>
+      </form>
+{% endblock %}

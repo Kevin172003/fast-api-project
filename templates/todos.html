@@ -1,0 +1,55 @@
+{% include 'base.html' %}
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Hello, world!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Info</th>
+                <th scope="col">Description</th>
+                <th scope="col">status</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in todos %}
+                {% if todo.complete == False %}
+                    <tr class="pointer">
+                        <td>{{loop.index}}</td>
+                        <td>{{todo.title}}</td>
+                        <td>{{todo.description}}</td>
+                        <td>{{todo.complete}}</td>
+                        <td>
+                            <a class="btn btn-info" href="{{ url_for('render_edit_todo_page', todo_id=todo.id) }}">Edit</a>
+                            <form action="{{ url_for('delete_todo', todo_id=todo.id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this todo?');">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr class="pointer alert alert-success">
+                        <td>{{loop.index}}</td>
+                        <td class="strike-thriugh-td">{{todo.title}}</td>
+                        <td>{{todo.description}}</td>
+                        <td class="strike-thriugh-td">{{todo.complete}}</td>
+                        <td>
+                            <a class="btn btn-info" href="{{ url_for('render_edit_todo_page', todo_id=todo.id) }}">Edit</a>
+                            <form action="{{ url_for('delete_todo', todo_id=todo.id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this todo?');">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/todos/add-todo-page" class="btn btn-primary">Add a new todo!</a>
+</div>
+{% endblock %}
